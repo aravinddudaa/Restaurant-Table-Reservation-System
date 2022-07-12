@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup page</title>
+        <Script lang="javascript">
+            function validate()
+            {
+                u=document.getElementById("fname");
+                lp=document.getElementById("phno");
+                if(u.value=="")
+                {
+                    alert("enter name");
+                    return false;
+                }
+                if(lp.value=="")
+                {
+                    alert("enter mobile number");
+                    return false;
+                }
+                e=document.getElementById("email").value;
+                if(e=="")
+                {
+                    alert("Enter email");
+                    return false;
+                }
+                
+                
+                
+                lp=true;
+                k=e.indexOf("@");
+                
+                k1=e.lastIndexOf(".");
+                if(k<=0 || k1-k<=0 || k1==e.length-1)
+                {
+                    alert("Enter valid email");
+                    e.focus();
+                    return false;
+                    
+                }
+                p1=document.getElementById("password1").value;
+                p2=document.getElementById("password2").value;
+                if(p1.length<8)
+                {
+                    alert("password must be 8 characters long");
+                    return false;
+                }
+                if(p1!=p2)
+                {
+                    alert("passwords not matching");
+                    return false;
+                    p2.focus();
+                }
+                window.alert("successfully created");
+                return true;
+            }
+        </Script>
+        <style>
+            input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            input[type=email], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            input[type=password], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            input[type=submit] {
+              width: 100%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            
+            input[type=submit]:hover {
+              background-color: #45a049;
+            }
+            
+            div {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+            </style>
+    </head>
+
+
+<body>
+
+<h3>CREATE ACCOUNT</h3>
+
+<div>
+  <form onsubmit="return validate()" method="post" action="insertuser.php" >
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="name" placeholder="Your name..">
+
+    <label for="phno">mobile</label>
+    <input type="text" id="phno" name="phno" placeholder="">
+
+    
+    <Label for="email">Email:</Label>
+    
+            <input type="email" id="email" name="email">
+            <label for="password1"> password:</label>
+            <input type="password" id="password1" name="password">
+            <label for="password2">confirm password</label>
+            <input type="password" id="password2" name="password2">
+  
+    <input type="submit" value="Submit">
+
+  </form>
+  <a href="login.html" class="btn btn-secondary btn-lg " tabindex="-1" role="button" aria-disabled="true">Back to login</a>
+
+</div>
+
+</body>
+</html>   
+
+
